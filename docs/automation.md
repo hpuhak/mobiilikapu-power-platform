@@ -10,6 +10,19 @@ The workflow checks whether the order status column has changed, preventing unre
 
 Order details and order items are retrieved from SharePoint and used to dynamically generate an HTML-formatted confirmation email.
 
+```mermaid
+flowchart TD
+    A[SharePoint order modified] --> B[Get column changes]
+    B --> C{Order status changed?}
+    C -->|No| X[End workflow]
+    C -->|Yes| D{Current status is New?}
+    D -->|No| X
+    D -->|Yes| E[Retrieve order details]
+    E --> F[Retrieve order items]
+    F --> G[Generate HTML email content]
+    G --> H[Send confirmation email]
+```
+
 ## Ready-for-pickup notification
 
 A similar workflow notifies the customer when an order is ready for pickup.
