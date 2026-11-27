@@ -34,6 +34,7 @@ This example demonstrates how the default value of a form field is determined ba
 
 ### Order creation process
 
+```mermaid
 flowchart TD
     A[Start new order] --> B[Load customer profile]
     B --> C[Enter customer details]
@@ -48,3 +49,4 @@ flowchart TD
     I -->|No| J[Error handling]
     I -->|Yes| K[Clear application state]
     K --> L[Display order confirmation]
+```
