@@ -20,6 +20,24 @@ Testing covered areas such as:
 - Automated notifications
 - Error handling
 
+### Example functional test cases
+
+| Test ID | Test scenario | Expected result |
+|---|---|---|
+| TC-01 | Start an order with an existing customer profile | Form fields are prepopulated |
+| TC-02 | Submit an invalid email address | Validation prevents proceeding |
+| TC-03 | Leave a required field empty | Validation message is displayed |
+| TC-04 | Navigate back to customer details | Previously entered information is preserved |
+| TC-05 | Abandon an unconfirmed order | No order records are created |
+| TC-06 | Confirm a valid order | Order data is saved to SharePoint |
+| TC-07 | Successfully complete an order | Confirmation screen is displayed |
+| TC-08 | Change order status to New | Confirmation email is triggered |
+| TC-09 | Modify unrelated order information | No additional confirmation email is sent |
+| TC-10 | Change order status to Ready for pickup | Pickup notification is triggered |
+
+*These examples illustrate the functional testing approach used
+during development and represent selected application scenarios.*
+
 ## Version management
 
 Power Apps' built-in version history was used to manage application versions and restore previous versions when necessary.
