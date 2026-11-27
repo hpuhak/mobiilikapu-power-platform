@@ -44,6 +44,7 @@ flowchart TD
     ID -.-> A2
     ID -.-> DB
 ```
+*The architecture diagram is a simplified reconstruction of the implemented system.*
 
 ## Application layer
 
@@ -76,5 +77,3 @@ The system was developed in a separate development environment without a solutio
 Environment-specific connections and configuration settings require adjustments when transferring the system to another environment.
 
 Solution-based development was identified as a potential improvement for future application lifecycle management.
-
-*The architecture diagram is a simplified reconstruction of the implemented system.*
