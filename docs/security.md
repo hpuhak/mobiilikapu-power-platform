@@ -31,3 +31,31 @@ During development, additional approaches to data protection were evaluated, inc
 - Restricted access through Power Automate workflows
 
 The advantages and limitations of these approaches were documented to support further development and deployment in the customer's environment.
+
+```mermaid
+flowchart TD
+    A[Authenticated user] --> B[Microsoft Entra ID]
+    B --> C[Group membership verification]
+    C --> D[Role-based application functionality]
+    D --> E[SharePoint connector]
+    A -. Direct SharePoint access .-> F
+    E --> F[SharePoint permission checks]
+    F --> G[(SharePoint data)]
+```
+*Application-level restrictions control available functionality, while SharePoint permissions determine actual access to the underlying data.*
+
+## Security mechanisms and implementation status
+
+| Security mechanism | Purpose | Implementation status |
+|---|---|---|
+| Microsoft Entra ID groups | User role management | Implemented |
+| Group membership verification | Role-specific functionality | Implemented |
+| Application-level filtering | Display relevant records | Implemented |
+| SharePoint group permissions | Data source access control | Implemented |
+| Item-level permissions | Restrict access to individual records | Evaluated |
+| Custom permission levels | More granular access control | Evaluated |
+| Restricted Power Automate access | Alternative data access architecture | Evaluated |
+
+Application-level filtering does not replace data source security.
+Additional security mechanisms were evaluated and documented
+as potential improvements for the customer's production environment.
