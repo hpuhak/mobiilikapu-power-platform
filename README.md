@@ -11,6 +11,10 @@ The solution consists of two Power Apps Canvas applications:
 
 The applications share a SharePoint-based data model and utilize Power Automate workflows for automated background processes and notifications.
 
+![Order management application](images/screenshots/order-app-home.png)
+
+*Home screen of the mobile ordering application.*
+
 ## Technologies
 
 - Microsoft Power Apps (Canvas Apps)
