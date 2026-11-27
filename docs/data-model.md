@@ -18,6 +18,44 @@ During development, the original lookup-based relationships were redesigned to u
 
 Indexed columns were also utilized to simplify frequently executed queries, such as retrieving orders associated with the current user.
 
+```mermaid
+flowchart TD
+    subgraph Before[Initial query approach]
+        A[Retrieve orders] --> B[Look up customer details]
+        B --> C[Filter by customer email]
+        C --> D[Display orders]
+    end
+
+    subgraph After[Optimized query approach]
+        E[Filter orders by indexed email column]
+        E --> F[Display orders]
+    end
+```
+Before:
+```powerfx
+Filter(
+    AddColumns(
+        Orders,
+        CustomerEmail,
+        LookUp(
+            OrderCustomers,
+            ID = OrderCustomerID,
+            Email
+        )
+    ),
+    CustomerEmail = User().Email
+)
+```
+
+After:
+```powerfx
+Filter(
+    Orders,
+    CustomerEmail = User().Email
+)
+```
+*Simplified Power Fx examples based on the original implementation.*
+
 ## Data consistency
 
 SharePoint does not provide native multi-list transaction management.
