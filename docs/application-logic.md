@@ -31,3 +31,20 @@ This example demonstrates how the default value of a form field is determined ba
 - Preservation of user input between screens
 - Reduced risk of incomplete records from abandoned orders
 - Improved maintainability of the ordering logic
+
+### Order creation process
+
+flowchart TD
+    A[Start new order] --> B[Load customer profile]
+    B --> C[Enter customer details]
+    C --> D{Valid input?}
+    D -->|No| C
+    D -->|Yes| E[Select products]
+    E --> F[Review shopping cart]
+    F --> G{Confirm order?}
+    G -->|Continue editing| E
+    G -->|Yes| H[Save order to SharePoint]
+    H --> I{Successful?}
+    I -->|No| J[Error handling]
+    I -->|Yes| K[Clear application state]
+    K --> L[Display order confirmation]
